@@ -20,11 +20,7 @@ public class MainActivity extends AppCompatActivity {
     public TextView view;
 
     public static Random r = new Random();
-    @RequiresApi(api = Build.VERSION_CODES.VANILLA_ICE_CREAM)
 
-    int num1 = r.nextInt(1,10);
-    @RequiresApi(api = Build.VERSION_CODES.VANILLA_ICE_CREAM)
-    int num2 = r.nextInt(1,5);
 
     @Override
     public void onCreate(Bundle a) {
@@ -35,11 +31,15 @@ public class MainActivity extends AppCompatActivity {
 
         view = findViewById(R.id.textView);
         button.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.VANILLA_ICE_CREAM)
             @SuppressLint("SetTextI18n")
-            @Override
+
             public void onClick(View v) {
 
+            @SuppressLint({"NewApi", "LocalSuppress"})
+            int num1 = r.nextInt(1,10 + 1);
+
+            @SuppressLint({"NewApi", "LocalSuppress"})
+            int num2 = r.nextInt(1,5 + 1);
 
                 view.setText(num1 + " + " + num2 + " = " +
                         (num1 + num2));
